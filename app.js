@@ -2,7 +2,6 @@ const dotenv = require('dotenv');
 const express = require('express');
 const app = express();
 const indexRouter = require('./routes/indexRouter');
-const newMessageRouter = require('./routes/newRouter');
 const path = require('node:path');
 
 dotenv.config();
@@ -10,8 +9,9 @@ dotenv.config();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(express.urlencoded({ extended: true }));
+
 // Set up routes
-app.use('/new', newMessageRouter);
 app.use('/', indexRouter);
 
 // Error handling middleware
