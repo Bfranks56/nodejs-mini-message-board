@@ -6,6 +6,10 @@ const path = require('node:path');
 
 dotenv.config();
 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+// Set up routes
 app.use('/', indexRouter);
 
 // Error handling middleware
