@@ -3,6 +3,9 @@
     <title>New Message</title>
   </head>
   <body>
+        <nav style="background-color: #f8f9fa; padding: 10px; color: red;">
+        <%- include('navbar', {links: links}) %>
+    </nav>
     <h1>Create a New Message</h1>
     <form action="/new" method="POST">
       <div>

@@ -3,6 +3,9 @@
     <title>Mini Message Board</title>
   </head>
   <body>
+    <nav style="background-color: #f8f9fa; padding: 10px; color: red;">
+        <%- include('navbar', {links: links}) %>
+    </nav>
     <div>
         <% messages.forEach((message)=> { %>
             <div style="border: 1px solid black; padding: 10px; margin-bottom: 10px;">

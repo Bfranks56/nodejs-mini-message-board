@@ -2,6 +2,11 @@ const { Router } = require('express');
 
 const indexRouter = Router();
 
+const links = [
+  { href: '/', text: 'View Messages' },
+  { href: '/new', text: 'Add Message' },
+];
+
 const messages = [
   {
     text: 'Hi there!',
@@ -15,9 +20,11 @@ const messages = [
   },
 ];
 
-indexRouter.get('/', (req, res) => res.render('index', { messages: messages }));
+indexRouter.get('/', (req, res) =>
+  res.render('index', { messages: messages, links: links })
+);
 indexRouter.get('/new', (req, res) => {
-  res.render('form');
+  res.render('form', { links: links });
 });
 indexRouter.post('/new', (req, res) => {
   const { text, user } = req.body;
