@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>Message Details</title>
+  </head>
+  <body>
+    <nav style="background-color: #f8f9fa; padding: 10px;">
+        <%- include('navbar', {links: links}) %>
+    </nav>
+    
+    <h1>Message Details</h1>
+    
+    <div style="border: 1px solid black; padding: 20px; margin: 20px 0;">
+        <h2>From: <%= message.user %></h2>
+        <p style="font-size: 18px;"><%= message.text %></p>
+        <p><strong>Posted on:</strong> <%= message.added %></p>
+    </div>
+    
+    <a href="/" style="background-color: #6c757d; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;">Back to Messages</a>
+  </body>
+</html>
