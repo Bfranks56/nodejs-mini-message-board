@@ -23,14 +23,11 @@ const messages = [
 indexRouter.get('/', (req, res) =>
   res.render('index', { messages: messages, links: links })
 );
+
 indexRouter.get('/new', (req, res) => {
   res.render('form', { links: links });
 });
-indexRouter.post('/new', (req, res) => {
-  const { text, user } = req.body;
-  messages.push({ text: text, user: user, added: new Date() });
-  res.redirect('/');
-});
+
 indexRouter.get('/messages/:id', (req, res) => {
   const messageId = parseInt(req.params.id);
   const message = messages[messageId];
@@ -40,6 +37,12 @@ indexRouter.get('/messages/:id', (req, res) => {
   } else {
     res.status(404).send('Message not found');
   }
+});
+
+indexRouter.post('/new', (req, res) => {
+  const { text, user } = req.body;
+  messages.push({ text: text, user: user, added: new Date() });
+  res.redirect('/');
 });
 
 module.exports = indexRouter;
